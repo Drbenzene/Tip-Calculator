@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.tipcalculator.databinding.ActivityMainBinding
 import java.text.NumberFormat
+import kotlin.math.ceil
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -48,12 +49,13 @@ class MainActivity : AppCompatActivity() {
         //Checking If Roundup
 
         if (binding.switchToggle.isChecked) {
-            tip = kotlin.math.ceil(tip)
+            tip = ceil(tip)
         }
 
-        //Getting the formatted Result.
+        //Getting the formatted Result.+
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
         binding.tipResult.text = getString(R.string.Tip_amount, formattedTip)
     }
+
 
 }
